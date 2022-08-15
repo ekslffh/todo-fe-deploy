@@ -1,5 +1,5 @@
 import './App.css';
-import { AppBar, Button, Grid, List, Paper, Toolbar, Typography } from '@mui/material';
+import { AppBar, Button, Grid, LinearProgress, List, Paper, Toolbar, Typography } from '@mui/material';
 import Todo from './Todo';
 import React from 'react';
 import { Container } from '@mui/system';
@@ -41,7 +41,7 @@ class App extends React.Component {
 
   render() {
     var todoItems = this.state.items.length > 0 && (
-      <Paper style={{ margin: 16 }}>
+      <Paper style={{ margin: 16, paddingRight: 16 }}>
         <List>
           {this.state.items.map((item, idx) => (
             <Todo 
@@ -60,10 +60,10 @@ class App extends React.Component {
         <Toolbar>
           <Grid justifyContent="space-between" container>
             <Grid item>
-              <Typography variant='h6'>오늘의 할일</Typography>
+              <Typography variant='h6'>TODO LIST</Typography>
             </Grid>
             <Grid>
-              <Button color='inherit' onClick={signout}>로그아웃</Button>
+              <Button color='inherit' onClick={signout}>Logout</Button>
             </Grid>
           </Grid>
         </Toolbar>
@@ -82,7 +82,7 @@ class App extends React.Component {
     );
 
     // 로딩 중일 때 렌더링할 부분
-    var loadingPage = <h1>로딩중 ...</h1>;
+    var loadingPage = <h1><LinearProgress /></h1>
 
     var content = loadingPage;
 
